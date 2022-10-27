@@ -3,9 +3,9 @@ require('dotenv').config()
 
 const sock = zmq.socket("pub")
 
-const host = process.env.HOST +':'+ process.env.PORT
-sock.bindSync(host)
-console.log("Connected pub on host "+host)
+const port = process.env.IP +':'+ process.env.PORT
+sock.bindSync(port)
+console.log("Connected pub on host "+port)
 
 setInterval(()=>{
     console.log("Sending positiv vibes!")

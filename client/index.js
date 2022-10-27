@@ -2,11 +2,11 @@ const zmq = require('zeromq')
 require('dotenv').config()
 const sock = zmq.socket("sub")
 
-const host = process.env.HOST +':'+ process.env.PORT
+const port = process.env.IP +':'+ process.env.PORT
 
-sock.connect(host)
+sock.connect(port)
 sock.subscribe('Andrew Tate')
-console.log("Connected sub on host "+host)
+console.log("Connected sub on host "+port)
 
 sock.on("message",(topic,msg)=>{
     console.log(

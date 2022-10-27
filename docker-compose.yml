@@ -2,9 +2,15 @@ version: '3.3'
 services:
   server:
     build: server/.
+    environment:
+      -  PORT=8080
+      -  IP=tcp://0.0.0.0
     ports:
         - "8080:8080" 
   client:
     build: client/.
+    environment:
+      -  PORT=8080
+      -  IP=tcp://server
     ports:
         - "8081:8081"      

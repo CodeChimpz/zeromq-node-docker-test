@@ -14,7 +14,10 @@ RUN npm rebuild zeromq
 
 COPY . .
 
-EXPOSE 8080
+ENV PORT 8080
+ENV HOST tcp://0.0.0.0
+
+EXPOSE $PORT
 
 CMD ["npm","run","start"]
 
